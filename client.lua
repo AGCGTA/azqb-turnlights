@@ -23,14 +23,9 @@ RegisterKeyMapping('+toggle_winker_right', '右ウィンカーを点灯', 'keybo
 
 RegisterNetEvent("azqb-turnlights:client:update", function(src, turnSignal, toggle)
   local vehicle = GetVehiclePedIsIn(GetPlayerPed(GetPlayerFromServerId(src)), false)
-  print("toggling..." .. tostring(src) .. " " .. tostring(turnSignal) .. tostring(toggle))
-  print("state" .. tostring(GetVehicleIndicatorLights(vehicle)))
   if turnSignal == 'left' then
     SetVehicleIndicatorLights(vehicle, 1, toggle)
-    print("left turning: " .. tostring(toggle))
   elseif turnSignal == 'right' then
     SetVehicleIndicatorLights(vehicle, 0, toggle)
-    print("right turning: " .. tostring(toggle))
   end
-  print("state" .. tostring(GetVehicleIndicatorLights(vehicle)))
 end)
